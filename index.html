@@ -1,46 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="exemplo de fallback">
-    <title>PWA - Geolocation - Capturando a Localização</title>
-    <link rel="apple-touch-icon" href="images/pwa-icon-256.png" />
-    <link rel="stylesheet" href="css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="white" />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="favicon.ico">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA GameTracker</title>
+  <link  rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="img/pwa-iicon-256.png">
+  <link rel="icon" href="favi.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <meta name="theme-color" content="white">
 </head>
 
-﻿
-
 <body>
-<section class="container">
-<header class="cabecalho">
-<h1 class="titulo">PWA- Geolocation</h1> </header>
-<div class="conteudo">
-<header class="cabecalho Conteudo"> <h2>Geolocalização</h2>
-</header>
-<div class="conteudo Localizacao">
-<p>
-Latitude: <span id="latitude">0.0</span>
-</p>
-<p>
-Logitude: <span id="longitude">0.0</span>
-</p>
-<div>
-<button class="botao" id="localizacao">Capturar Localização</button>
-</div>
-</div>
-</div>
-<footer class="rodape">
-Progressive Web Application Geolocation
-</footer>
-</section>
-<script src="js/main.js"></script>
-</body>
-</html>
+  <section class="container">
+    <header class="cabecalho">
+      <h1 class="titulo">GameTracker <img src="favi.png"> </h1>
+    </header>  
 
+    <main id="camera">
+      <h2>Adicione seu momento da sua vida Gamer!!! <i class="bi bi-controller"></i></h2>
+      
+      <video id="camera--view" alt="Imagem capturada pela câmera" autoplay playsinline></video>
+      <br/>
+      <input type="text" id="photo-title" placeholder="Digite Alguma coisa">
+      <div class="botoes-camera">
+        <button id="camera--trigger">Capturar Capa</button>
+        <button id="switch-camera">Trocar Câmera</button>
+      </div>
+      
+      <canvas id="camera--sensor"></canvas>
+    </main>
+
+    <section id="photo-gallery-container">
+      <h2>Minha Biblioteca de Jogos</h2>
+      <div id="photo-gallery"></div>
+    </section>
+
+    <section id="game-location">
+      <h3>Mapa:</h3>
+      <iframe id="photo-map" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </section>
+
+    <footer class="rodape">
+      <p>&copy; 2025 GameTracker - Seu Catálogo de Jogos</p>
+      <p>By Victor Hugo e Felipe Marques</p>
+      <p>INFO 6B</p>
+    </footer>
+  </section>
+</body>
+
+<script type="module" src="/js/main.js"></script>
 </html>

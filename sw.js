@@ -4,55 +4,44 @@ import { registerRoute, Route } from 'workbox-routing';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 
-// configurando o cache
+
 const pageCache = new CacheFirst({
-  cacheName: 'primeira-pwa-cache',
+  cacheName: 'pwa-cam',
   plugins: [
-    new CacheableResponsePlugin({
-      statuses: [0, 200],
-    }),
-    new ExpirationPlugin({
-      maxAgeSeconds: 30 * 24 * 60 * 60,
-    }),
+    new CacheableResponsePlugin({ statuses: [0, 200] }),
+    new ExpirationPlugin({ maxAgeSeconds: 30 * 24 * 60 * 60 }),
   ],
 });
 
-//indicando o cache de página
 warmStrategyCache({
-  urls: ['/index.html', '/'],
+  urls: ['/index', '/', "/offline", "/js/main.js", '/js/db.js', "/images/pwa-icon-256.png', '/images/pwa-icon-512.png", 
+    "/favicon.ico","/js/style.css"],
   strategy: pageCache,
 });
-//registrando a rota
+
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// configurando cache de assets
-registerRoute(
-  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+
+registerRoute(({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new StaleWhileRevalidate({
-    cacheName: 'asset-cache',
+    cacheName: 'paisagem',
     plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
+      new CacheableResponsePlugin({ statuses: [0, 200] }),
     ],
-  }),
+  })
 );
 
-// configurando offline fallback
+
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new ExpirationPlugin({ maxAgeSeconds: 60 * 60 * 24 * 30 }),
+    ],
+  })
+);
+
 offlineFallback({
   pageFallback: '/offline.html',
 });
-
-const imageRoute = new Route(({ request }) => {
-  return request.destination === 'image';
-}, new CacheFirst({
-  cacheName: 'images',
-  plugins: [
-    new ExpirationPlugin({
-      maxAgeSeconds: 60 * 60 * 24 * 30,
-    })
-  ]
-}));
-
-registerRoute(imageRoute);
-

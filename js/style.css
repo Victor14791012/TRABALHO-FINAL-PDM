@@ -1,0 +1,191 @@
+/* Importando Fonte Gamer */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: #180418;
+  color: #ffffff;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container principal */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  margin-bottom: 30px;
+}
+
+.cabecalho img {
+  width: 70px;
+  height: 70px;
+  border: 0px;
+  padding: 0px;
+}
+
+.titulo {
+  font-family: 'Press Start 2P', cursive;
+  color: #00d9ff;
+  text-shadow: 0px 0px 10px #00d9ff;
+}
+
+/* Seções */
+.conteudo {
+  padding: 20px;
+}
+
+/* Botões */
+button {
+  background: #6a0dad;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+  background: #9400d3;
+  box-shadow: 0px 0px 10px #9400d3;
+}
+
+/* Responsividade dos botões */
+.botoes-camera {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media(min-width: 768px) {
+  .botoes-camera {
+    flex-direction: row;
+  }
+}
+
+/* Input */
+#photo-title {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  background: #1f1f2e;
+  color: #ffffff;
+  border: 2px solid #00d9ff;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.3s;
+  text-align: center;
+  margin: 10px auto;
+}
+
+#photo-title::placeholder {
+  color: #cccccc;
+}
+
+#photo-title:focus {
+  border-color: #9400d3;
+  box-shadow: 0px 0px 10px #9400d3;
+}
+
+/* Câmera */
+#camera {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#camera--view {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #00d9ff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Galeria */
+#photo-gallery-container {
+  margin-top: 30px;
+}
+
+#photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.photo-card {
+  width: calc(50% - 10px);
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px rgba(148, 0, 211, 0.7);
+  transition: transform 0.3s ease-in-out;
+}
+
+@media(min-width: 768px) {
+
+  .titulo {
+    font-size: 50px;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .photo-card {
+    width: calc(25% - 15px);
+  }
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-card:hover {
+  transform: scale(1.1);
+}
+
+/* Mapa */
+#photo-map {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 2px solid #00d9ff;
+  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Rodapé */
+.rodape {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 0px 0px 10px #00d9ff;
+}
