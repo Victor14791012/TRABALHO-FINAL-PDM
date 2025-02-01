@@ -33,12 +33,22 @@ async function savePhoto(photoWithLocation) {
 
   request.onsuccess = () => {
     console.log("Foto salva com sucesso:", photoWithLocation);
+    
+    // Exibe a mensagem de sucesso
+    const feedbackElement = document.getElementById("photo-feedback");
+    feedbackElement.style.display = "block";
+    
+    // Esconde a mensagem após 3 segundos
+    setTimeout(() => {
+      feedbackElement.style.display = "none";
+    }, 3000);
   };
 
   request.onerror = () => {
     console.error("Erro ao salvar a foto:", request.error);
   };
 }
+
 
 
 async function loadPhotos() {
