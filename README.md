@@ -12,7 +12,7 @@ Este projeto é uma plataforma desenvolvida para registrar momentos importantes 
 ## Tecnologias Utilizadas
 - **Frontend**: Vite, Html, Css
 - **Backend**: JavaScript
-- **Banco de Dados**: indexDB
+- **Banco de Dados**: IndexedDB
 
 
 ## Contribuições
