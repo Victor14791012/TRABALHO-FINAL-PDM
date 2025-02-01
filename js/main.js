@@ -29,46 +29,76 @@ async function savePhoto(photoWithLocation) {
   const db = await openDB();
   const transaction = db.transaction("photos", "readwrite");
   const store = transaction.objectStore("photos");
-  store.add(photoWithLocation);
+  const request = store.add(photoWithLocation);
+
+  request.onsuccess = () => {
+    console.log("Foto salva com sucesso:", photoWithLocation);
+  };
+
+  request.onerror = () => {
+    console.error("Erro ao salvar a foto:", request.error);
+  };
 }
+
 
 async function loadPhotos() {
   const db = await openDB();
   const transaction = db.transaction("photos", "readonly");
   const store = transaction.objectStore("photos");
   const request = store.getAll();
+
   request.onsuccess = () => {
+    console.log("Fotos carregadas:", request.result);
     lastPhotos.length = 0;
     lastPhotos.push(...request.result.slice(-10));
     updatePhotoGallery();
   };
+
+  request.onerror = () => {
+    console.error("Erro ao carregar as fotos:", request.error);
+  };
 }
 
+
 function updatePhotoGallery() {
-  const gallery = document.getElementById("photo-gallery");
-  if (!gallery) return;
+  const gallery = document.getElementById("photo-gallery-container");
+  if (!gallery) {
+    console.warn("Elemento da galeria não encontrado.");
+    return;
+  }
 
   gallery.innerHTML = "";
+  console.log("Atualizando galeria com", lastPhotos.length, "fotos.");
 
   lastPhotos.forEach((photoWithLocation) => {
+    const div = document.createElement("div");
     const img = document.createElement("img");
     img.src = photoWithLocation.photo;
     img.classList.add("photo-preview");
 
+    div.classList.add("div");
+
     const title = document.createElement("h3");
     title.innerText = `Título: ${photoWithLocation.title || "Sem título"}`;
 
+    const locationInfo = document.createElement("p");
+    locationInfo.innerText = `Latitude: ${photoWithLocation.location.latitude}, Longitude: ${photoWithLocation.location.longitude}`;
+
+
     const iframe = document.createElement("iframe");
-    iframe.width = "100%";
+    iframe.width = "50%";
     iframe.height = "300";
     iframe.frameBorder = "0";
     iframe.style.border = "0";
     iframe.allowFullscreen = true;
     iframe.src = `https://www.google.com/maps?q=${photoWithLocation.location.latitude},${photoWithLocation.location.longitude}&z=15&output=embed`;
 
-    gallery.appendChild(img);
-    gallery.appendChild(title);
-    gallery.appendChild(iframe);
+    div.appendChild(img);
+    div.appendChild(title);
+    div.appendChild(locationInfo);
+    div.appendChild(iframe);
+
+    gallery.appendChild(div);
   });
 }
 
@@ -138,13 +168,14 @@ cameraTrigger.onclick = async function () {
       location: { latitude: posicao.coords.latitude, longitude: posicao.coords.longitude },
       timestamp: new Date().toISOString()
     };
-
-    lastPhotos.push(photoWithLocation);
-    if (lastPhotos.length > 3) lastPhotos.shift();
-
+  
     await savePhoto(photoWithLocation);
     updatePhotoGallery();
-  }, erro);
+  }, (erro) => {
+    console.error("Erro ao obter a localização:", erro);
+    alert("Erro ao obter a localização. Verifique as permissões do navegador.");
+  });
+  
 };
 
 switchCameraButton.onclick = function () {
@@ -156,3 +187,4 @@ window.addEventListener("load", () => {
   cameraStart();
   loadPhotos();
 });
+
