@@ -23,6 +23,7 @@ body {
 
 /* Container principal */
 .container {
+  overflow: hidden;
   width: 90%;
   max-width: 1200px;
   margin: 20px auto;
@@ -71,11 +72,21 @@ button:hover {
   box-shadow: 0px 0px 10px #9400d3;
 }
 
+#camera--sensor{
+  max-width: -webkit-fill-available;
+  max-height: -webkit-fill-available;
+}
+
 /* Responsividade dos botões */
 .botoes-camera {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.photo-preview{
+  max-width: -webkit-fill-available;
+  max-height: -webkit-fill-available;
 }
 
 @media(min-width: 768px) {
@@ -118,9 +129,9 @@ button:hover {
   align-items: center;
 }
 
+
 #camera--view {
-  max-width: 100%;
-  height: auto;
+  width: 70%;
   border: 2px solid #00d9ff;
   border-radius: 8px;
   box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
@@ -128,24 +139,15 @@ button:hover {
 
 /* Galeria */
 #photo-gallery-container {
+  text-align: start;
+  display: flex;
+  flex-direction: column-reverse;
   margin-top: 30px;
 }
 
-#photo-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
 
-.photo-card {
-  width: calc(50% - 10px);
-  height: 150px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 0px 15px rgba(148, 0, 211, 0.7);
-  transition: transform 0.3s ease-in-out;
-}
+
+
 
 @media(min-width: 768px) {
 
@@ -157,29 +159,20 @@ button:hover {
     width: 80%;
   }
 
-  .photo-card {
-    width: calc(25% - 15px);
-  }
+  
 }
 
-.photo-card img {
+iframe{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-.photo-card:hover {
-  transform: scale(1.1);
+.photo-preview{
+  border-radius: 10px; ;
+  margin-top: 10px ;
+  max-width: 100%;
+  
 }
 
-/* Mapa */
-#photo-map {
-  width: 100%;
-  margin-top: 30px;
-  border-radius: 8px;
-  border: 2px solid #00d9ff;
-  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
-}
 
 /* Rodapé */
 .rodape {
