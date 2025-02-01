@@ -22,7 +22,7 @@ Este projeto é uma plataforma desenvolvida para registrar momentos importantes 
 ## Como Rodar o Projeto
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/usuario/pdm-trabalho-final.git
+   git clone https://github.com/Victor14791012/TRABALHO-FINAL-PDM
    ```
 2. Instale as dependências:
    ```bash
@@ -30,7 +30,7 @@ Este projeto é uma plataforma desenvolvida para registrar momentos importantes 
    ```
 3. Inicie o servidor localmente:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## Licença
