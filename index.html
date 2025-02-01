@@ -6,7 +6,7 @@
   <title>PWA GameTracker</title>
   <link  rel="stylesheet" href="css/style.css">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="img/pwa-iicon-256.png">
+  <link rel="apple-touch-icon" href="images/pwa-icon-256.png">
   <link rel="icon" href="favi.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <meta name="theme-color" content="white">
@@ -32,16 +32,13 @@
       <canvas id="camera--sensor"></canvas>
     </main>
 
-    <section id="photo-gallery-container">
-      <h2>Minha Biblioteca de Jogos</h2>
-      <div id="photo-gallery"></div>
-    </section>
+      <h2>Minha Biblioteca</h2>
+    
+    <div id="photo-gallery-container" >
+      <output></output>
+    </div>
 
-    <section id="game-location">
-      <h3>Mapa:</h3>
-      <iframe id="photo-map" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </section>
-
+ 
     <footer class="rodape">
       <p>&copy; 2025 GameTracker - Seu Catálogo de Jogos</p>
       <p>By Victor Hugo e Felipe Marques</p>
@@ -51,4 +48,5 @@
 </body>
 
 <script type="module" src="/js/main.js"></script>
+<!-- <script type="module" src="/js/db.js"></script> -->
 </html>
