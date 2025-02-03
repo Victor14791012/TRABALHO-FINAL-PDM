@@ -23,5 +23,24 @@
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "white",
+<<<<<<< Updated upstream
     "theme_color": "white"
 }
+=======
+    "theme_color": "white",
+    "screenshots": [
+        {
+            "src": "images/screenshot1.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "images/screenshot2.png",
+            "sizes": "640x1136",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ]
+}
+>>>>>>> Stashed changes
