@@ -23,10 +23,6 @@
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "white",
-<<<<<<< Updated upstream
-    "theme_color": "white"
-}
-=======
     "theme_color": "white",
     "screenshots": [
         {
@@ -43,4 +39,3 @@
         }
     ]
 }
->>>>>>> Stashed changes
