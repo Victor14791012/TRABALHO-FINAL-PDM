@@ -49,8 +49,6 @@ async function savePhoto(photoWithLocation) {
   };
 }
 
-
-
 async function loadPhotos() {
   const db = await openDB();
   const transaction = db.transaction("photos", "readonly");
@@ -68,7 +66,6 @@ async function loadPhotos() {
     console.error("Erro ao carregar as fotos:", request.error);
   };
 }
-
 
 function updatePhotoGallery() {
   const gallery = document.getElementById("photo-gallery-container");
@@ -93,7 +90,6 @@ function updatePhotoGallery() {
 
     const locationInfo = document.createElement("p");
     locationInfo.innerText = `Latitude: ${photoWithLocation.location.latitude}, Longitude: ${photoWithLocation.location.longitude}`;
-
 
     const iframe = document.createElement("iframe");
     iframe.width = "50%";
@@ -197,4 +193,3 @@ window.addEventListener("load", () => {
   cameraStart();
   loadPhotos();
 });
-
