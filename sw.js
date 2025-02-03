@@ -4,7 +4,6 @@ import { registerRoute, Route } from 'workbox-routing';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 
-
 const pageCache = new CacheFirst({
   cacheName: 'pwa-cam',
   plugins: [
@@ -21,7 +20,6 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-
 registerRoute(({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new StaleWhileRevalidate({
     cacheName: 'momento',
@@ -30,7 +28,6 @@ registerRoute(({ request }) => ['style', 'script', 'worker'].includes(request.de
     ],
   })
 );
-
 
 registerRoute(
   ({ request }) => request.destination === 'image',
