@@ -142,7 +142,6 @@ button:hover {
   align-items: center;
 }
 
-
 #camera--view {
   width: 70%;
   border: 2px solid #00d9ff;
@@ -158,10 +157,6 @@ button:hover {
   margin-top: 30px;
 }
 
-
-
-
-
 @media(min-width: 768px) {
 
   .titulo {
@@ -171,8 +166,6 @@ button:hover {
   .container {
     width: 80%;
   }
-
-  
 }
 
 iframe{
@@ -185,7 +178,6 @@ iframe{
   max-width: 100%;
   
 }
-
 
 /* Rodapé */
 .rodape {
