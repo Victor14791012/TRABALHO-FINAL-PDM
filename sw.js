@@ -13,8 +13,16 @@ const pageCache = new CacheFirst({
 });
 
 warmStrategyCache({
-  urls: ['/index', '/', "/offline", "/js/main.js", '/js/db.js', "/images/pwa-icon-256.png', '/images/pwa-icon-512.png", 
-    "/favicon.ico","/js/style.css"],
+  urls: [
+  '/index', '/',
+  '/offline',
+  '/js/main.js',
+  '/js/db.js',
+  '/images/pwa-icon-256.png',
+  '/images/pwa-icon-512.png',
+  '/favicon.ico',
+  '/js/style.css'
+],
   strategy: pageCache,
 });
 
